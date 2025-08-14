@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopZone - Your Shopping Destination</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f3f6;
+        }
+
+        /* Header */
+        .header {
+            background: #2874f0;
+            color: white;
+            padding: 8px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            border: none;
+            border-radius: 2px;
+            font-size: 14px;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            background: #fff;
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Categories Bar */
+        .categories-bar {
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+        }
+
+        .category-item {
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .category-item:hover {
+            background: #f8f9fa;
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            background: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 5px;
+            font-size: 20px;
+        }
+
+        /* Banner */
+        .banner {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Products Section */
+        .products-section {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 150px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 48px;
+            color: #ddd;
+        }
+
+        .product-name {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #388e3c;
+        }
+
+        .original-price {
+            font-size: 12px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #172337;
+            color: white;
+            margin-top: 50px;
+            padding: 30px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #878787;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-section ul li a:hover {
+            color: #2874f0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box {
+                margin: 0;
+                max-width: 100%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .categories-container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .banner {
+                margin: 10px;
+                padding: 20px;
+            }
+
+            .banner h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">ShopZone</a>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search for products, brands and more">
+                <button class="search-btn">🔍</button>
+            </div>
+            <nav class="nav-links">
+                <a href="#">Login</a>
+                <a href="#">Become a Seller</a>
+                <a href="#">More</a>
+                <a href="#">Cart 🛒</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Categories Bar -->
+    <div class="categories-bar">
+        <div class="categories-container">
+            <a href="#" class="category-item">
+                <div class="category-icon">📱</div>
+                <div>Mobiles</div>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">👕</div>
+                <div>Fashion</div>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">💻</div>
+                <div>Electronics</div>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">🏠</div>
+                <div>Home</div>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">✈️</div>
+                <div>Travel</div>
+            </a>
+            <a href="#" class="category-item">
+                <div class="category-icon">⚽</div>
+                <div>Sports</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <h1>Big Shopping Days</h1>
+        <p>Mega discounts on your favorite products</p>
+    </div>
+
+    <!-- Products Section -->
+    <div class="products-section">
+        <h2 class="section-title">Trending Products</h2>
+        <div class="products-grid">
+            <a href="#" class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-name">Smartphone XYZ Pro</div>
+                <div class="product-price">₹19,999 <span class="original-price">₹24,999</span></div>
+            </a>
+            <a href="#" class="product-card">
+                <div class="product-image">👟</div>
+                <div class="product-name">Running Shoes</div>
+                <div class="product-price">₹2,499 <span class="original-price">₹3,999</span></div>
+            </a>
+            <a href="#" class="product-card">
+                <div class="product-image">💻</div>
+                <div class="product-name">Laptop Ultra</div>
+                <div class="product-price">₹45,999 <span class="original-price">₹59,999</span></div>
+            </a>
+            <a href="#" class="product-card">
+                <div class="product-image">🎧</div>
+                <div class="product-name">Wireless Headphones</div>
+                <div class="product-price">₹1,999 <span class="original-price">₹2,999</span></div>
+            </a>
+            <a href="#" class="product-card">
+                <div class="product-image">⌚</div>
+                <div class="product-name">Smart Watch</div>
+                <div class="product-price">₹8,999 <span class="original-price">₹12,999</span></div>
+            </a>
+            <a href="#" class="product-card">
+                <div class="product-image">📷</div>
+                <div class="product-name">Digital Camera</div>
+                <div class="product-price">₹25,999 <span class="original-price">₹35,999</span></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ABOUT</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>HELP</h3>
+                <ul>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Cancellation</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONSUMER POLICY</h3>
+                <ul>
+                    <li><a href="#">Cancellation</a></li>
+                    <li><a href="#">Terms Of Use</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SOCIAL</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
